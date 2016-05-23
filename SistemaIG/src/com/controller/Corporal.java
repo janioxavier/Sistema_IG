@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.controle;
+package com.controller;
 
 /**
  *
  * @author Jânio Xavier
  */
-public class Facial implements Acao{
+public class Corporal implements Acao{
     
 }

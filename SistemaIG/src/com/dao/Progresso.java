@@ -5,7 +5,7 @@
  */
 package com.dao;
 
-import com.controle.Acao;
+import com.controller.Acao;
 import java.util.List;
 
 /**

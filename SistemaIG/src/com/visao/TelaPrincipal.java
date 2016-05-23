@@ -5,7 +5,7 @@
  */
 package com.visao;
 
-import com.controle.ControladorJogo;
+import com.controller.ControladorJogo;
 
 /**
  *

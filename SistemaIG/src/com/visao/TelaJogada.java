@@ -5,8 +5,8 @@
  */
 package com.visao;
 
-import com.controle.Acao;
-import com.controle.ControladorJogo;
+import com.controller.Acao;
+import com.controller.ControladorJogo;
 
 /**
  *

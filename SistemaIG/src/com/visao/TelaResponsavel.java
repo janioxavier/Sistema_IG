@@ -5,7 +5,7 @@
  */
 package com.visao;
 
-import com.controle.PlotadorGrafico;
+import com.controller.PlotadorGrafico;
 import com.dao.DadoPlotagem;
 
 /**

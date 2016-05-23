@@ -5,8 +5,8 @@
  */
 package com.visao;
 
-import com.controle.OrdenadorAcoes;
-import com.controle.SeletorJogabilidade;
+import com.controller.OrdenadorAcoes;
+import com.controller.SeletorJogabilidade;
 
 /**
  *

@@ -3,20 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.controle;
+package com.controller;
 
-import com.dao.DadoPlotagem;
+import com.visao.Festejo;
 
 /**
  *
  * @author Jânio Xavier
  */
-public class PlotadorGrafico {
-    public void plotar(DadoPlotagem dp) {
+public class Festejador {
+    private Festejo festejo;
+    private int tipoFestejo;
+    
+    public void festejar() {
         
     }
     
-    private void analisarDados() {
-        
+    private int sortearNumeroEntre(int n1, int n2, int excluido) {
+        return 0;
     }
 }
