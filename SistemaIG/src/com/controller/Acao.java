@@ -10,5 +10,5 @@ package com.controller;
  * @author Jânio Xavier
  */
 public interface Acao {
-    
+    Acao getTipoAcao();
 }
