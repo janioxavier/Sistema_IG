@@ -10,5 +10,10 @@ package com.controller;
  * @author Jânio Xavier
  */
 public class Facial implements Acao{
+
+    @Override
+    public Acao getTipoAcao() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

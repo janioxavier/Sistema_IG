@@ -7,8 +7,11 @@ package com.controller;
 
 /**
  *
- * @author Jânio Xavier
+ * @author janioxavier
  */
-public interface Acao {
-    Acao getTipoAcao();
+public enum TipoPersonagem {
+    GATO,
+    CACHORRO,
+    MENINO,
+    MENINA;
 }

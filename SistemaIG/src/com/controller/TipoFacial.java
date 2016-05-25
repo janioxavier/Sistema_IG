@@ -7,13 +7,19 @@ package com.controller;
 
 /**
  *
- * @author Jânio Xavier
+ * @author janioxavier
  */
-public class Corporal implements Acao{
+public enum TipoFacial implements Acao{
+    PISCAR_1_OLHO,
+    PISCAR_2_OLHOS,
+    ESTIRAR_LINGUA,
+    ABRIR_BOCA,
+    FAZER_CARA_CHORO,
+    FAZER_CARETA,
+    SORRIR;
 
     @Override
     public Acao getTipoAcao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this;
     }
-    
 }
