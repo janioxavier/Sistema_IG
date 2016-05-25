@@ -6,6 +6,8 @@
 package com.dao;
 
 import com.controller.Acao;
+import com.controller.TipoCorporal;
+import com.controller.TipoFacial;
 import java.util.List;
 
 /**
@@ -14,12 +16,38 @@ import java.util.List;
  */
 public abstract class Personagem {
     private List<Acao> listaAcoes;
-    private int nivel;
+    private TipoCorporal acoesCorporais;
+    private TipoFacial acoesFaciais;
+    private transient int nivel;
     
     public abstract Acao realizarAcao();
     
     public void addAcao(Acao acao) {
         listaAcoes.add(acao);
+    }
+
+    public TipoCorporal getAcoesCorporais() {
+        return acoesCorporais;
+    }
+
+    public void setAcoesCorporais(TipoCorporal acoesCorporais) {
+        this.acoesCorporais = acoesCorporais;
+    }
+
+    public TipoFacial getAcoesFaciais() {
+        return acoesFaciais;
+    }
+
+    public void setAcoesFaciais(TipoFacial acoesFaciais) {
+        this.acoesFaciais = acoesFaciais;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
     
     public void removerAcao(Acao acao) {
@@ -32,5 +60,7 @@ public abstract class Personagem {
     
     public void subirNivel() {
         nivel++;
-    }        
+    }  
+    
+    
 }

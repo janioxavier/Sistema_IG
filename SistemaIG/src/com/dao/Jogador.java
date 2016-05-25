@@ -5,13 +5,16 @@
  */
 package com.dao;
 
+import com.controller.TipoPersonagem;
+
 /**
  *
  * @author Jânio Xavier
  */
 public class Jogador {
     private Personagem personagem;
-    private int nivelJogador;
+    private transient TipoPersonagem tipoPersonagem;
+    private transient int nivelJogador;
 
     public Personagem getPersonagem() {
         return personagem;
@@ -27,7 +30,5 @@ public class Jogador {
 
     public void setNivelJogador(int nivelJogador) {
         this.nivelJogador = nivelJogador;
-    }
-    
-    
+    }        
 }
