@@ -15,10 +15,10 @@ import java.util.List;
  * @author Jânio Xavier
  */
 public abstract class Personagem {
-    private List<Acao> listaAcoes;
-    private TipoCorporal acoesCorporais;
-    private TipoFacial acoesFaciais;
-    private transient int nivel;
+    private transient List<Acao> listaAcoes;
+    private transient TipoCorporal acoesCorporais;
+    private transient TipoFacial acoesFaciais;
+    private int nivel;
     
     public abstract Acao realizarAcao();
     
