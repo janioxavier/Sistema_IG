@@ -6,25 +6,43 @@
 package com.dao;
 
 import com.controller.Acao;
+import com.controller.TipoPersonagem;
 import java.util.List;
-
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 /**
  *
  * @author Jânio Xavier
  */
 public class Progresso {
-    private static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 3;
-    private static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 5;
+    private transient static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 3;
+    private transient static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 5;
     private int maiorNivelAlcancado;
-    private List<Personagem> personagemMaisEscolhidos;
-    private List<Acao> acoesMaisEscolhidas;
-    private transient String[] personagemMaisEscolhido;
-    private transient String[] acoesMaisEscolhida;
+    private Map<TipoPersonagem, Integer> quantidadePersonagemEscolhidos;
+    private Map<Acao, Integer> quantidadeAcoesEscolhidos;
+    private transient List<Personagem> personagemMaisEscolhidos;
+    private transient List<Acao> acoesMaisEscolhidas;
+    private String[] personagemMaisEscolhido;
+    private String[] acoesMaisEscolhida;
 
     public Progresso() {
        personagemMaisEscolhido = new String[NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS];
        acoesMaisEscolhida = new String[NUMERO_ACOES_MAIS_ESCOLHIDAS];
+       quantidadePersonagemEscolhidos = new HashMap<>();
+       quantidadeAcoesEscolhidos = new HashMap<>();
     }
+    
+    public void incrementarPersonagemEscolhido(TipoPersonagem personagem) {
+        int qtdPersonagensEscolhidos = quantidadePersonagemEscolhidos.
+                get(personagem);
+        quantidadePersonagemEscolhidos.put(personagem, ++qtdPersonagensEscolhidos);
+    }
+    
+    public void incrementarAcoesEscolhidas(Acao acao) {
+        int qtdAcoesEscolhidas = quantidadeAcoesEscolhidos.get(acao);
+        quantidadeAcoesEscolhidos.put(acao, ++qtdAcoesEscolhidas);
+    }    
 
     public String[] getPersonagemMaisEscolhido() {
         return personagemMaisEscolhido;

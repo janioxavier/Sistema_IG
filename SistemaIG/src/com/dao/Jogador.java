@@ -12,9 +12,9 @@ import com.controller.TipoPersonagem;
  * @author Jânio Xavier
  */
 public class Jogador {
-    private Personagem personagem;
-    private transient TipoPersonagem tipoPersonagem;
-    private transient int nivelJogador;
+    private transient Personagem personagem;
+    private TipoPersonagem tipoPersonagem;
+    private int nivelJogador;
 
     public Personagem getPersonagem() {
         return personagem;
