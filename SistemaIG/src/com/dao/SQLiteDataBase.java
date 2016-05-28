@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  */
 public abstract class SQLiteDataBase {
 
-    private Connection connection;
+    private Connection connection; 
     protected Statement statement;    
 
     public SQLiteDataBase(String nameDB) throws ClassNotFoundException, SQLException {

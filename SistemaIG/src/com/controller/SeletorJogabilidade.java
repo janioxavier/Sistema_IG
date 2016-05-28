@@ -15,7 +15,7 @@ public class SeletorJogabilidade {
     public static final int NIVEL_MAXIMO = 6;    
     private int nivelJogabilidade;
     private Jogador jogador;
-    
+     
     public SeletorJogabilidade(Jogador jogador) {
         this.nivelJogabilidade = 0;
         this.jogador = jogador;

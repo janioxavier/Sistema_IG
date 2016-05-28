@@ -14,6 +14,7 @@ import com.sistemaXX.SistemaXX;
 import com.visao.TelaJogo;
 import com.visao.TelaJogoUI;
 import com.visao.TelaResponsavel;
+import com.visao.TelaResponsavelUI;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class ControladorJogo {
             jogador = new Jogador(todosProgressos.get(size-1));
         }
         return novoNome;
-    }
+    } 
     
     /**
      * inicia o jogo passando o nome do jogador e seu responsável.

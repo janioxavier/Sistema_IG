@@ -72,3 +72,4 @@ public class OrdenadorAcoes {
         ordemAcoes = acoes.subList(0, quantidadeAcoes);
     }
 }
+ 

@@ -20,7 +20,7 @@ public class AvaliadorImitacao {
     private int sucessosSucessivos;
     private int falhasSucessivas;
     private SeletorJogabilidade seletorJogabilidade;
-    private final SistemaXX sistemaXX;            
+    private final SistemaXX sistemaXX;             
 
     public AvaliadorImitacao(Jogador jogador) {
         this.seletorJogabilidade = new SeletorJogabilidade(jogador);

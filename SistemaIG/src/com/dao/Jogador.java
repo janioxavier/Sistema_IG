@@ -72,4 +72,4 @@ public class Jogador {
     public void setPersonagem(Personagem personagem) {
         this.personagem = personagem;
     }   
-}
+} 

@@ -25,7 +25,7 @@ public class Progresso {
     private String[] acoesMaisEscolhidas;    
     private String nickJogador;
     private String responsavel;
-        
+         
     
     public Progresso(String nickJogador, String responsavel) {        
         personagensMaisEscolhidos = new String[NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS];
