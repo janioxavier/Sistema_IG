@@ -8,79 +8,95 @@ package com.dao;
 import com.controller.Acao;
 import com.controller.TipoPersonagem;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
+
 /**
  *
  * @author Jânio Xavier
  */
 public class Progresso {
-    private transient static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 3;
-    private transient static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 5;
-    private int maiorNivelAlcancado;
-    private Map<TipoPersonagem, Integer> quantidadePersonagemEscolhidos;
-    private Map<Acao, Integer> quantidadeAcoesEscolhidos;
+    public transient static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 3;
+    public transient static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 5;
+    private Map<TipoPersonagem, Integer> maiorNivelAlcancado;        
     private transient List<Personagem> personagemMaisEscolhidos;
-    private transient List<Acao> acoesMaisEscolhidas;
-    private String[] personagemMaisEscolhido;
-    private String[] acoesMaisEscolhida;
-
-    public Progresso() {
-       personagemMaisEscolhido = new String[NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS];
-       acoesMaisEscolhida = new String[NUMERO_ACOES_MAIS_ESCOLHIDAS];
-       quantidadePersonagemEscolhidos = new HashMap<>();
-       quantidadeAcoesEscolhidos = new HashMap<>();
-    }
+    private transient List<Acao> acaoMaisEscolhidas;       
+    private String[] personagensMaisEscolhidos;
+    private String[] acoesMaisEscolhidas;    
+    private String nickJogador;
+    private String responsavel;
+        
     
-    public void incrementarPersonagemEscolhido(TipoPersonagem personagem) {
-        int qtdPersonagensEscolhidos = quantidadePersonagemEscolhidos.
-                get(personagem);
-        quantidadePersonagemEscolhidos.put(personagem, ++qtdPersonagensEscolhidos);
-    }
-    
-    public void incrementarAcoesEscolhidas(Acao acao) {
-        int qtdAcoesEscolhidas = quantidadeAcoesEscolhidos.get(acao);
-        quantidadeAcoesEscolhidos.put(acao, ++qtdAcoesEscolhidas);
-    }    
-
-    public String[] getPersonagemMaisEscolhido() {
-        return personagemMaisEscolhido;
-    }
-
-    public void setPersonagemMaisEscolhido(String[] personagemMaisEscolhido) {
-        this.personagemMaisEscolhido = personagemMaisEscolhido;
-    }
-
-    public String[] getAcoesMaisEscolhida() {
-        return acoesMaisEscolhida;
-    }
-
-    public void setAcoesMaisEscolhida(String[] acoesMaisEscolhida) {
-        this.acoesMaisEscolhida = acoesMaisEscolhida;
+    public Progresso(String nickJogador, String responsavel) {        
+        personagensMaisEscolhidos = new String[NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS];
+        acoesMaisEscolhidas = new String[NUMERO_ACOES_MAIS_ESCOLHIDAS];
+        maiorNivelAlcancado = new HashMap<>();
+        this.nickJogador = nickJogador;
+        this.responsavel = responsavel;
     }        
+
     
-    public int getMaiorNivelAlcancado() {
-        return maiorNivelAlcancado;
+    public String getNickJogador() {
+        return nickJogador;
+    }
+    
+    public String getResponsavel() {
+        return responsavel;
+    }   
+
+    public String[] getPersonagensMaisEscolhidos() {
+        return personagensMaisEscolhidos;
     }
 
-    public void setMaiorNivelAlcancado(int maiorNivelAlcancado) {
-        this.maiorNivelAlcancado = maiorNivelAlcancado;
+    /**
+     * as primeira posições do array referem-se aos personagens mais escolhidos
+     * @param personagensMaisEscolhidos 
+     */
+    public void setPersonagensMaisEscolhidos(String[] personagensMaisEscolhidos) {
+        if (personagensMaisEscolhidos.length <= NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS)
+        this.personagensMaisEscolhidos = personagensMaisEscolhidos;
+    }
+
+    public String[] getAcoesMaisEscolhidas() {
+        return acoesMaisEscolhidas;
+    }
+
+    /**
+     * As primeiras posições do vetor refere-se as ações mais escolhidas
+     * @param acoesMaisEscolhidas array  5 das ações mais escolhidas
+     */
+    public void setAcoesMaisEscolhidas(String[] acoesMaisEscolhidas) {
+        if (acoesMaisEscolhidas.length <= NUMERO_ACOES_MAIS_ESCOLHIDAS) {
+            this.acoesMaisEscolhidas = acoesMaisEscolhidas;
+        }
+    }
+            
+    public int getMaiorNivelAlcancado(TipoPersonagem tipo) {
+        if (maiorNivelAlcancado.containsKey(tipo)) {
+            return maiorNivelAlcancado.get(tipo);
+        }
+        return 0;
+    }
+
+    public void setMaiorNivelAlcancado(TipoPersonagem personagem, Integer nivel) {
+        if (personagem != null) {
+            maiorNivelAlcancado.put(personagem, nivel);
+        }
     }
 
     public List<Personagem> getPersonagemMaisEscolhidos() {
         return personagemMaisEscolhidos;
     }
 
-    public List<Acao> getAcoesMaisEscolhidas() {
-        return acoesMaisEscolhidas;
+    public void setPersonagemMaisEscolhidos(List<Personagem> personagemMaisEscolhidos) {
+        this.personagemMaisEscolhidos = personagemMaisEscolhidos;        
     }
-    
-    public void addPersonagenEscolhido(Personagem personagem) {
-        personagemMaisEscolhidos.add(personagem);
+
+    public void setAcaoMaisEscolhidas(List<Acao> acoesMaisEscolhidas) {
+        this.acaoMaisEscolhidas = acoesMaisEscolhidas;
     }
-    
-    public void addAcaoEscolhida(Acao acao) {
-        acoesMaisEscolhidas.add(acao);
+        
+    public List<Acao> getAcaoMaisEscolhidas() {
+        return acaoMaisEscolhidas;
     }
 }
