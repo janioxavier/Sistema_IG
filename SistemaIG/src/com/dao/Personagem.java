@@ -19,7 +19,6 @@ public abstract class Personagem {
     private transient TipoCorporal acoesCorporais;
     private transient TipoFacial acoesFaciais;
     private int nivel;
-    private int vezesEscolhido;
     
     public abstract Acao realizarAcao();
     
@@ -62,13 +61,6 @@ public abstract class Personagem {
     public void subirNivel() {
         nivel++;
     }  
-
-    public int getVezesEscolhido() {
-        return vezesEscolhido;
-    }
-
-    public void setVezesEscolhido(int vezesEscolhido) {
-        this.vezesEscolhido = vezesEscolhido;
-    }
-
+    
+    
 }
