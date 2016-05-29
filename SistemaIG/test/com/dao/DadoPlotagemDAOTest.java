@@ -5,6 +5,7 @@
  */
 package com.dao;
 
+import com.controller.Progresso;
 import com.controller.Acao;
 import com.controller.TipoCorporal;
 import com.controller.TipoFacial;

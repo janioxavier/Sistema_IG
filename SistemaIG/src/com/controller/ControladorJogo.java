@@ -5,15 +5,10 @@
  */
 package com.controller;
 
-import com.dao.DadoPlotagem;
 import com.dao.DadoPlotagemDAO;
 import com.dao.Jogador;
 import com.dao.Personagem;
-import com.dao.Progresso;
-import com.sistemaXX.SistemaXX;
-import com.visao.TelaJogo;
 import com.visao.TelaJogoUI;
-import com.visao.TelaResponsavel;
 import com.visao.TelaResponsavelUI;
 import java.sql.SQLException;
 import java.util.List;
@@ -78,10 +73,10 @@ public class ControladorJogo {
      * @param responsavel
      * @return true se existe um responsável com dado nome, false cc.
      */
-    public boolean iniciaAreaResponsavel(String responsavel) {
+    public boolean iniciaAreaResponsavel(String responsavel) throws SQLException {
        boolean existeResponsavel = dpDAO.contemResponsavel(responsavel); 
        if (existeResponsavel) {
-           telaResponsavel = new TelaResponsavelUI();
+           TelaResponsavelUI.inicializarJanela(getDadosPlotagem(responsavel));
        }
        return existeResponsavel;
     }
@@ -153,9 +148,9 @@ public class ControladorJogo {
         dpDAO.addProgresso(progresso);
     }
     
-    public DadoPlotagem getDadosPlotagem() throws SQLException {
-        return new DadoPlotagem(dpDAO.getTodosProgressos());        
-    }        
+    public DadoPlotagem getDadosPlotagem(String responsavel) throws SQLException {
+        return new DadoPlotagem(dpDAO.getTodosProgressosResponsavel(responsavel));        
+    }
     
     public void encerrar() throws SQLException {
         dpDAO.close();        

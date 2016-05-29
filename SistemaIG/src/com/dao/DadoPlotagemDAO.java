@@ -5,6 +5,7 @@
  */
 package com.dao;
 
+import com.controller.Progresso;
 import com.controller.TipoPersonagem;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -129,6 +130,17 @@ public class DadoPlotagemDAO extends SQLiteDataBase {
         List<Progresso> todosProgressos = new ArrayList<>();
         ResultSet rs = statement.executeQuery("select * from Progresso"
                 + " where progressoJogador = " + "'"+nickJogador+"'");
+        while(rs.next()) {
+            todosProgressos.add(recuperarProgresso(rs));
+        }
+        return todosProgressos;
+    }
+    
+    public List<Progresso> getTodosProgressosResponsavel(String responsavel)
+            throws SQLException {
+        List<Progresso> todosProgressos = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("select * from Progresso"
+                + " where progressoJogador = " + "'"+responsavel+"'");
         while(rs.next()) {
             todosProgressos.add(recuperarProgresso(rs));
         }

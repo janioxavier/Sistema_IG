@@ -5,8 +5,6 @@
  */
 package com.controller;
 
-import com.dao.DadoPlotagem;
-
 /**
  *
  * @author Jânio Xavier

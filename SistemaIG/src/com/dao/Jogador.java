@@ -5,6 +5,7 @@
  */
 package com.dao;
 
+import com.controller.Progresso;
 import com.controller.TipoPersonagem;
 import java.util.HashMap;
 import java.util.Map;
