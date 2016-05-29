@@ -46,8 +46,8 @@ public class DadoPlotagemDAOTest {
             progresso.setMaiorNivelAlcancado(tp, 2);
         }
         
-        progresso.setAcoesMaisEscolhidas(new String[] {"abrir boca", "piscar olhos", "dar tchau"});
-        progresso.setPersonagensMaisEscolhidos(new String[] {"gato", "menina", "cachorro" });                                        
+        progresso.setAcoesMaisEscolhidas(new String[] {"corporal"});
+        progresso.setPersonagensMaisEscolhidos(new String[] {"gato"});                                        
         return progresso;
     }
 

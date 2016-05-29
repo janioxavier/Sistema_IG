@@ -16,8 +16,8 @@ import java.util.HashMap;
  * @author Jânio Xavier
  */
 public class Progresso {
-    public transient static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 3;
-    public transient static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 5;
+    public transient static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 1;
+    public transient static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 1;
     private Map<TipoPersonagem, Integer> maiorNivelAlcancado;        
     private transient List<Personagem> personagemMaisEscolhidos;
     private transient List<Acao> acaoMaisEscolhidas;       

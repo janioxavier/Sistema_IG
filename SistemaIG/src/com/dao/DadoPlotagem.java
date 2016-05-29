@@ -12,13 +12,13 @@ import java.util.List;
  * @author Jânio Xavier
  */
 public class DadoPlotagem {
-    private List<Progresso> cadaProgresso;
+    private List<Progresso> cadaProgresso;        
     
-    public void addProgresso(Progresso progesso) {
-        cadaProgresso.add(progesso);
+    public DadoPlotagem(List<Progresso> todosProgressos) {
+        cadaProgresso = todosProgressos;
     }
     
     public List<Progresso> getCadaProgresso() {
         return cadaProgresso;
-    } 
+    }
 }
