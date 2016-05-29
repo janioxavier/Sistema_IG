@@ -5,10 +5,28 @@
  */
 package com.sistemaXX;
 
+import com.controller.Acao;
+import java.util.Random;
+
 /**
  *
  * @author Jânio Xavier
  */
-public interface SistemaXX {
+public class SistemaXX {
+    private Random randomGenerator;
     
+    public SistemaXX() {
+        randomGenerator = new Random(System.currentTimeMillis());
+    }
+    
+    /**
+     * 
+     * @param imitacao imitação do jogado
+     * @return o grau de imitação da ação
+     */
+    public GrauImitacao avaliarImitacao(Acao imitacao) {
+        GrauImitacao[] values = GrauImitacao.values();
+        int grau = randomGenerator.nextInt(values.length);        
+        return values[grau];
+    }
 }
