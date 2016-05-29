@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.dao;
+package com.controller;
 
 import com.controller.Acao;
 import com.controller.TipoPersonagem;
+import com.dao.Personagem;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -16,8 +17,8 @@ import java.util.HashMap;
  * @author Jânio Xavier
  */
 public class Progresso {
-    public transient static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 3;
-    public transient static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 5;
+    public transient static final int NUMERO_PERSONAGENS_MAIS_ESCOLHIDOS = 1;
+    public transient static final int NUMERO_ACOES_MAIS_ESCOLHIDAS = 1;
     private Map<TipoPersonagem, Integer> maiorNivelAlcancado;        
     private transient List<Personagem> personagemMaisEscolhidos;
     private transient List<Acao> acaoMaisEscolhidas;       

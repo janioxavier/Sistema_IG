@@ -5,6 +5,7 @@
  */
 package com.dao;
 
+import com.controller.Progresso;
 import com.controller.TipoPersonagem;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +18,8 @@ import java.util.logging.Logger;
  *
  * @author janioxavier
  */
-public class DadoPlotagemDAO extends SQLiteDataBase {
-
+public class DadoPlotagemDAO extends SQLiteDataBase {    
+    
     public DadoPlotagemDAO(String nameBD) throws ClassNotFoundException, SQLException {
         super(nameBD);
     }
@@ -29,10 +30,9 @@ public class DadoPlotagemDAO extends SQLiteDataBase {
                 + "progressoJogador string, "
                 + "responsavel string, "
                 + "maiorNivelMenino int, maiorNivelMenina int, maiorNivelGato"
-                + " int, maiorNivelCachorro int, personagensMaisEscolhidos1 string, "
-                + "personagensMaisEscolhidos2 string, personagensMaisEscolhidos3 string, "
-                + "acoesMaisEscolhidas1 string, acoesMaisEscolhidas2 string, acoesMaisEscolhidas3"
-                + " string, acoesMaisEscolhidas4 string, acoesMaiesEscolhidas5 string"
+                + " int, maiorNivelCachorro int, "
+                + "personagensMaisEscolhidos1 string, "                
+                + "acoesMaisEscolhidas1 string"
                 + ")");
     }
 
@@ -43,10 +43,9 @@ public class DadoPlotagemDAO extends SQLiteDataBase {
                 + "progressoJogador string, "
                 + "responsavel string, "
                 + "maiorNivelMenino int, maiorNivelMenina int, maiorNivelGato"
-                + " int, maiorNivelCachorro int, personagensMaisEscolhidos1 string, "
-                + "personagensMaisEscolhidos2 string, personagensMaisEscolhidos3 string, "
-                + "acoesMaisEscolhidas1 string, acoesMaisEscolhidas2 string, acoesMaisEscolhidas3"
-                + " string, acoesMaisEscolhidas4 string, acoesMaisEscolhidas5 string"
+                + " int, maiorNivelCachorro int, "
+                + "personagensMaisEscolhidos1 string, "                
+                + "acoesMaisEscolhidas1 string"
                 + ")");
     }
 
@@ -136,6 +135,17 @@ public class DadoPlotagemDAO extends SQLiteDataBase {
         }
         return todosProgressos;
     }
+    
+    public List<Progresso> getTodosProgressosResponsavel(String responsavel)
+            throws SQLException {
+        List<Progresso> todosProgressos = new ArrayList<>();
+        ResultSet rs = statement.executeQuery("select * from Progresso"
+                + " where progressoJogador = " + "'"+responsavel+"'");
+        while(rs.next()) {
+            todosProgressos.add(recuperarProgresso(rs));
+        }
+        return todosProgressos;
+    }
 
     private Progresso recuperarProgresso(ResultSet rs) throws SQLException {
         String[] personagensMaisEscolhidos;
@@ -206,14 +216,8 @@ public class DadoPlotagemDAO extends SQLiteDataBase {
                 + "maior nivel menina: " + rs.getInt("maiorNivelMenina") + "\n"
                 + "maior nivel gato: " + rs.getInt("maiorNivelGato") + "\n"
                 + "maior nivel cachoro: " + rs.getInt("maiorNivelCachorro") + "\n"
-                + "personagem mais escolhido 1: " + rs.getString("personagensMaisEscolhidos1") + "\n"
-                + "personagem mais escolhido 2: " + rs.getString("personagensMaisEscolhidos2") + "\n"
-                + "personagem mais escolhido 3: " + rs.getString("personagensMaisEscolhidos3") + "\n"
-                + "acoes mais escolhidas 1: " + rs.getString("acoesMaisEscolhidas1") + "\n"
-                + "acoes mais escolhidas 2: " + rs.getString("acoesMaisEscolhidas2") + "\n"
-                + "acoes mais escolhidas 3: " + rs.getString("acoesMaisEscolhidas3") + "\n"
-                + "acoes mais escolhidas 4: " + rs.getString("acoesMaisEscolhidas4") + "\n"
-                + "acoes mais escolhidas 5: " + rs.getString("acoesMaisEscolhidas5") + "\n";
+                + "personagem mais escolhido: " + rs.getString("personagensMaisEscolhidos1") + "\n"                
+                + "acoes mais escolhidas: " + rs.getString("acoesMaisEscolhidas1") + "\n";                
         return str;
     }
 

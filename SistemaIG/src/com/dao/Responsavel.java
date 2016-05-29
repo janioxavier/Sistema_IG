@@ -5,6 +5,7 @@
  */
 package com.dao;
 
+import com.controller.Progresso;
 import java.util.List;
 
 /**

@@ -6,6 +6,10 @@
 package com.visao;
 
 import com.controller.ControladorJogo;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -104,10 +108,14 @@ public class EntrarAreaResposavelJDialog extends javax.swing.JDialog {
     private void entrarJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarJButton1ActionPerformed
         // TODO add your handling code here:
         String responsavel = responsavelJTextField.getText();
-        if (controlador.iniciaAreaResponsavel(responsavel)) {
-            dispose();
-        } else {
-            avisoJLabel.setText("Não existe um responsável com dado nome");
+        try {
+            if (controlador.iniciaAreaResponsavel(responsavel)) {
+                dispose();
+            } else {
+                avisoJLabel.setText("Não existe um responsável com dado nome");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.toString());
         }
     }//GEN-LAST:event_entrarJButton1ActionPerformed
 

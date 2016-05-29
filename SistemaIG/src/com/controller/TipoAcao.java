@@ -5,21 +5,21 @@
  */
 package com.controller;
 
-import com.visao.Festejo;
-
 /**
  *
  * @author Jânio Xavier
  */
-public class Festejador {
-    private Festejo festejo;
-    private int tipoFestejo;
+public enum TipoAcao {
+    Facial ("Facial"),
+    Corporal ("Corporal");
     
-    public void festejar() {
-        
+    String nome;
+    
+    private TipoAcao(String nome) {
+        this.nome = nome;
     }
     
-    private int sortearNumeroEntre(int n1, int n2, int excluido) {
-        return 0;
+    public String getNome() {
+        return nome;
     }
 }

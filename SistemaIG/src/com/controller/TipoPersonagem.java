@@ -10,8 +10,17 @@ package com.controller;
  * @author janioxavier
  */
 public enum TipoPersonagem {
-    GATO,
-    CACHORRO,
-    MENINO,
-    MENINA;
+    GATO ("Gato"),
+    CACHORRO ("Cachorro"),
+    MENINO ("Menino"),
+    MENINA ("Menina");
+    
+    private String nome;    
+    private TipoPersonagem(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
 }
