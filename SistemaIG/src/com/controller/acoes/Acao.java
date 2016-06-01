@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.controller;
+package com.controller.acoes;
 
 /**
  *
  * @author Jânio Xavier
  */
-public class PlotadorGrafico {
-    public void plotar(DadoPlotagem dp) {
-        
-    }
-    
-    private void analisarDados() {
-        
-    }
+public interface Acao {
+    TipoAcao getTipoAcao();
 }

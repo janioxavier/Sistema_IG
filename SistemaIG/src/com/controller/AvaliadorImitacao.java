@@ -5,8 +5,9 @@
  */
 package com.controller;
 
+import com.controller.acoes.Acao;
 import com.dao.Jogador;
-import com.dao.Personagem;
+import com.controller.personagens.Personagem;
 import com.sistemaXX.GrauImitacao;
 import com.sistemaXX.SistemaXX;
 

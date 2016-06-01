@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package com.controller;
+import com.controller.acoes.Acao;
+import com.controller.acoes.TipoFacial;
+import com.controller.acoes.TipoCorporal;
+import com.controller.acoes.TipoAcao;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -25,16 +29,16 @@ public class OrdenadorAcoes {
         quantidadeAcoes = 0;
     }
     
-    public List<Acao> ordenarAcoes(int nivel, Acao tipoAcao) {        
+    public List<Acao> ordenarAcoes(int nivel, TipoAcao tipoAcao) {        
         ordemAcoes = null;
         quantidadeAcoes = nivel;
         if (nivel >= NIVEL_MISTURA_ACAO) {
             misturarAcoes();
         }
-        else if (tipoAcao instanceof TipoFacial) {
+        else if (tipoAcao == TipoAcao.FACIAL) {
             ordenarFacias();
         }
-        else if (tipoAcao instanceof TipoCorporal) {
+        else if (tipoAcao == TipoAcao.CORPORAL) {
             ordenarCorporal();
         }
         return ordemAcoes;
@@ -46,7 +50,7 @@ public class OrdenadorAcoes {
         Collections.shuffle(acoesFaciais);
         
         ordemAcoes = acoesFaciais.subList(0, quantidadeAcoes);        
-    }
+    } 
     
     private void ordenarCorporal() {
         TipoCorporal[] corporais = TipoCorporal.values();

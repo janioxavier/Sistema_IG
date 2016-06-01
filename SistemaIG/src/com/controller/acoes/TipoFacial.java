@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.controller;
+package com.controller.acoes;
 
 /**
  *
@@ -19,7 +19,7 @@ public enum TipoFacial implements Acao{
     SORRIR;
 
     @Override
-    public Acao getTipoAcao() {
-        return this;
+    public TipoAcao getTipoAcao() {
+        return TipoAcao.FACIAL;
     }
 }

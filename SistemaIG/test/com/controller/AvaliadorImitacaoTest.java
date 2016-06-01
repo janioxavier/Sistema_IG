@@ -5,6 +5,7 @@
  */
 package com.controller;
 
+import com.controller.acoes.Acao;
 import com.dao.Jogador;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

@@ -5,9 +5,9 @@
  */
 package com.controller;
 
-import com.controller.Acao;
-import com.controller.TipoPersonagem;
-import com.dao.Personagem;
+import com.controller.acoes.Acao;
+import com.controller.personagens.TipoPersonagem;
+import com.controller.personagens.Personagem;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;

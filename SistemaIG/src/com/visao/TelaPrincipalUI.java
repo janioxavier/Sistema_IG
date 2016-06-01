@@ -6,6 +6,10 @@
 package com.visao;
 
 import com.controller.ControladorJogo;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +23,13 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
      */
     public TelaPrincipalUI() {
         initComponents();
+        try {
+            controladorJogo = new ControladorJogo();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(TelaPrincipalUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaPrincipalUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -32,8 +43,8 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jogarJButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         areaResponsavelJButton = new javax.swing.JButton();
+        jButtonUsuariosCadastrados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,12 +55,17 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Selecione:");
-
         areaResponsavelJButton.setText("Area Responsável");
         areaResponsavelJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 areaResponsavelJButtonActionPerformed(evt);
+            }
+        });
+
+        jButtonUsuariosCadastrados.setText("Usuários Cadastrados");
+        jButtonUsuariosCadastrados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUsuariosCadastradosActionPerformed(evt);
             }
         });
 
@@ -58,26 +74,28 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(areaResponsavelJButton)
-                .addGap(30, 30, 30))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jogarJButton))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonUsuariosCadastrados))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jogarJButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(areaResponsavelJButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(21, 21, 21)
                 .addComponent(jogarJButton)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(areaResponsavelJButton)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jButtonUsuariosCadastrados)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,14 +105,14 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(63, 63, 63)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(81, 81, 81))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,6 +128,15 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
         EntrarAreaResposavelJDialog.inicializarJanela(this, controladorJogo);
         
     }//GEN-LAST:event_areaResponsavelJButtonActionPerformed
+
+    private void jButtonUsuariosCadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUsuariosCadastradosActionPerformed
+        try {
+            // TODO add your handling code here:
+            UsuariosCadastradosJDialog.inicializarJanela(this, rootPaneCheckingEnabled, controladorJogo.getDadosPlotagem());
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Erro", ex.toString(), JOptionPane.ERROR);
+        }
+    }//GEN-LAST:event_jButtonUsuariosCadastradosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,7 +175,7 @@ public class TelaPrincipalUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton areaResponsavelJButton;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButtonUsuariosCadastrados;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jogarJButton;
     // End of variables declaration//GEN-END:variables

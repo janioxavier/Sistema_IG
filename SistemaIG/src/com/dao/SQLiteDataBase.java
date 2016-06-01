@@ -30,6 +30,7 @@ public abstract class SQLiteDataBase {
         connection = DriverManager.getConnection("jdbc:sqlite:" + nameDB);
         statement = connection.createStatement();
         statement.setQueryTimeout(5);  // set timeout to 30 sec.
+        createTable();
     }
 
     public abstract void createTable() throws SQLException;

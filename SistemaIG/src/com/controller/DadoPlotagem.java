@@ -5,6 +5,7 @@
  */
 package com.controller;
 
+import com.controller.personagens.TipoPersonagem;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;

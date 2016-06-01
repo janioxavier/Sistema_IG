@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.controller;
+package com.controller.acoes;
 
 /**
  * Enumeração dos tipos de ações corporais
@@ -21,7 +21,7 @@ public enum TipoCorporal implements Acao{
     FAZER_SIM_CABECA;
 
     @Override
-    public Acao getTipoAcao() {
-        return this;
+    public TipoAcao getTipoAcao() {
+        return TipoAcao.CORPORAL;
     }   
 }

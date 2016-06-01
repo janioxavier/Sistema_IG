@@ -6,7 +6,7 @@
 package com.dao;
 
 import com.controller.Progresso;
-import com.controller.TipoPersonagem;
+import com.controller.personagens.TipoPersonagem;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

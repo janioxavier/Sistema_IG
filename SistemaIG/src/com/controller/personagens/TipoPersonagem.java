@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.controller;
+package com.controller.personagens;
 
 /**
  *
- * @author Jânio Xavier
+ * @author janioxavier
  */
-public enum TipoAcao {
-    Facial ("Facial"),
-    Corporal ("Corporal");
+public enum TipoPersonagem {
+    GATO ("Gato"),
+    CACHORRO ("Cachorro"),
+    MENINO ("Menino"),
+    MENINA ("Menina");
     
-    String nome;
-    
-    private TipoAcao(String nome) {
+    private String nome;    
+    private TipoPersonagem(String nome) {
         this.nome = nome;
     }
     

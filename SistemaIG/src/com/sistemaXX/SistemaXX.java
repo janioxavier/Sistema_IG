@@ -5,7 +5,7 @@
  */
 package com.sistemaXX;
 
-import com.controller.Acao;
+import com.controller.acoes.Acao;
 import java.util.Random;
 
 /**

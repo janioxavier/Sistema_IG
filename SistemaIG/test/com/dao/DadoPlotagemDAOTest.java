@@ -6,10 +6,10 @@
 package com.dao;
 
 import com.controller.Progresso;
-import com.controller.Acao;
-import com.controller.TipoCorporal;
-import com.controller.TipoFacial;
-import com.controller.TipoPersonagem;
+import com.controller.acoes.Acao;
+import com.controller.acoes.TipoCorporal;
+import com.controller.acoes.TipoFacial;
+import com.controller.personagens.TipoPersonagem;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;

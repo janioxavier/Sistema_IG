@@ -5,9 +5,12 @@
  */
 package com.controller;
 
+import com.controller.acoes.Acao;
+import com.controller.acoes.TipoAcao;
+import com.controller.personagens.TipoPersonagem;
 import com.dao.DadoPlotagemDAO;
 import com.dao.Jogador;
-import com.dao.Personagem;
+import com.controller.personagens.Personagem;
 import com.visao.TelaJogoUI;
 import com.visao.TelaResponsavelUI;
 import java.sql.SQLException;
@@ -47,6 +50,7 @@ public class ControladorJogo {
             int size = todosProgressos.size();
             progresso = todosProgressos.get(size-1);
             jogador = new Jogador(todosProgressos.get(size-1));
+            TelaJogoUI.inicializarJanela(this);
         }
         return novoNome;
     } 
@@ -61,7 +65,7 @@ public class ControladorJogo {
         boolean novoNome = !dpDAO.contemJogador(nome);
         
         if (novoNome) {
-            telaJogo = new TelaJogoUI();
+            TelaJogoUI.inicializarJanela(this);
             jogador = new Jogador(nome, responsavel);
             progresso = jogador.getProgresso();
         }
@@ -97,7 +101,7 @@ public class ControladorJogo {
      * @param nivel nivel do jogador
      * @return ações a serem realizadas pelo jogador.
      */
-    public List<Acao> inicializarJogada(TipoPersonagem personagem, Acao acao,
+    public List<Acao> inicializarJogada(TipoPersonagem personagem, TipoAcao acao,
             int nivel) {
         atualizarTipoPersonagem(personagem);
         atualizarNivelJogador(nivel);
@@ -105,12 +109,8 @@ public class ControladorJogo {
         return ordenadorAcoes.ordenarAcoes(nivel, acao);
     }
     
-    private void contarAcaoEscolhida(Acao acao) {
-        if (acao instanceof TipoFacial) {
-            contadorEscolha.incrementarAcao(TipoAcao.Facial);
-        } else if (acao instanceof TipoCorporal){
-            contadorEscolha.incrementarAcao(TipoAcao.Corporal);
-        }
+    private void contarAcaoEscolhida(TipoAcao acao) {
+        contadorEscolha.incrementarAcao(TipoAcao.FACIAL);        
     }
     
     private void atualizarTipoPersonagem(TipoPersonagem personagem) {
@@ -150,6 +150,10 @@ public class ControladorJogo {
     
     public DadoPlotagem getDadosPlotagem(String responsavel) throws SQLException {
         return new DadoPlotagem(dpDAO.getTodosProgressosResponsavel(responsavel));        
+    }
+    
+    public DadoPlotagem getDadosPlotagem() throws SQLException {
+        return new DadoPlotagem(dpDAO.getTodosProgressos());        
     }
     
     public void encerrar() throws SQLException {

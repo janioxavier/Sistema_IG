@@ -7,7 +7,7 @@ package com.visao;
 
 import com.controller.DadoPlotagem;
 import com.controller.Progresso;
-import com.controller.TipoPersonagem;
+import com.controller.personagens.TipoPersonagem;
 import java.util.Arrays;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -51,5 +51,5 @@ public class TelaResponsavelUITest {
     public static void main(String[] args) {        
         TelaResponsavelUITest teste = new TelaResponsavelUITest();
         TelaResponsavelUI.inicializarJanela(teste.getDadosPlotagem());
-    }    
+    }  
 }

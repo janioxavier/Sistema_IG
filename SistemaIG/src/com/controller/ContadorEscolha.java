@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package com.controller;
+import com.controller.acoes.TipoAcao;
+import com.controller.personagens.TipoPersonagem;
 import java.util.Map;
 import java.util.HashMap;
 
